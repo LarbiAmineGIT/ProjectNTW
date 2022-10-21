@@ -123,7 +123,7 @@
     "ora" "5.4.1"
     "rxjs" "6.6.7"
 
-"@angular/animations@^14.2.0", "@angular/animations@14.2.7":
+"@angular/animations@^14.2.7", "@angular/animations@14.2.7":
   "integrity" "sha512-4vI22Pa56FkE7ydxZwEd7RHwIjfyE5MnbgB2fWEQ3obnul8GnQT7OHWiPgzV57SDqOCWZyWdLm9xuOnZVdypxQ=="
   "resolved" "https://registry.npmjs.org/@angular/animations/-/animations-14.2.7.tgz"
   "version" "14.2.7"

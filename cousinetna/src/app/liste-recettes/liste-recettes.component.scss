@@ -1,0 +1,45 @@
+.sidebar{
+    height: 100%;
+    position: sticky;
+    top: 0;
+    overflow-x: hidden;
+}
+.header{
+    font-size: 36px;
+    color: #CCD5AE;
+    font-weight: bold;
+    margin-bottom: 21px;
+}
+.recette{
+    width: 48%;
+    margin: 0px 1% 20px 1%;
+    padding: 0px;
+    border: solid 2px #FAEDCD;
+
+    &:hover {
+        transition: all 0.2s ease-out;
+        box-shadow: 7px 6px 8px #FAEDCD;
+        top: -8px;
+        border: 1px solid #D4A373;
+        background-color: white;
+        cursor: pointer;
+    }
+    &:hover:before {
+        transform: scale(2.15);
+    }
+}
+
+.title{
+    justify-content: center;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    color: #D4A373;
+}
+::ng-deep .p-rating .p-rating-icon.pi-star-fill {
+    color: #CCD5AE;
+}
+.commentaire{
+    line-height: 1;
+    font-size: 13px;
+}
