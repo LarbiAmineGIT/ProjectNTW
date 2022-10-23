@@ -38,10 +38,10 @@ export class ListeRecettesComponent implements OnInit {
         ingredients:[
         {
           idIngredient: '63525f552d244e5bb912cfeb',
-          Quantité:'500g'
+          quantite:'500g'
         },{
           idIngredient: '554d1228deb74a1c',
-          Quantité:'2'
+          quantite:'2'
         }
         ]
       },
@@ -62,10 +62,10 @@ export class ListeRecettesComponent implements OnInit {
         ingredients:[
         {
           idIngredient: '63525f552d244e5bb912cfeb',
-          Quantité:'500g'
+          quantite:'500g'
         },{
           idIngredient: '554d1228deb74a1c',
-          Quantité:'2'
+          quantite:'2'
         }
         ]
       },
@@ -86,10 +86,10 @@ export class ListeRecettesComponent implements OnInit {
         ingredients:[
         {
           idIngredient: '63525f552d244e5bb912cfeb',
-          Quantité:'500g'
+          quantite:'500g'
         },{
           idIngredient: '554d1228deb74a1c',
-          Quantité:'2'
+          quantite:'2'
         }
         ]
       },
@@ -110,10 +110,10 @@ export class ListeRecettesComponent implements OnInit {
         ingredients:[
         {
           idIngredient: '63525f552d244e5bb912cfeb',
-          Quantité:'500g'
+          quantite:'500g'
         },{
           idIngredient: '554d1228deb74a1c',
-          Quantité:'2'
+          quantite:'2'
         }
         ]
       },
@@ -134,10 +134,10 @@ export class ListeRecettesComponent implements OnInit {
         ingredients:[
         {
           idIngredient: '63525f552d244e5bb912cfeb',
-          Quantité:'500g'
+          quantite:'500g'
         },{
           idIngredient: '554d1228deb74a1c',
-          Quantité:'2'
+          quantite:'2'
         }
         ]
       },
@@ -158,10 +158,10 @@ export class ListeRecettesComponent implements OnInit {
         ingredients:[
         {
           idIngredient: '63525f552d244e5bb912cfeb',
-          Quantité:'500g'
+          quantite:'500g'
         },{
           idIngredient: '554d1228deb74a1c',
-          Quantité:'2'
+          quantite:'2'
         }
         ]
       }
