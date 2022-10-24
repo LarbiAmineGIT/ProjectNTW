@@ -45,11 +45,11 @@ export class ListeRecettesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRecettes();
+    console.log(this.categorie);
   }
 
   getRecettes()
   {
-    console.log(this.filtreForm.value);
     this.listeRecettes= [
       {
           "photo": "https://cdn.vox-cdn.com/thumbor/dFTj61C1YkIBCN8IytARX65bSAA=/0x0:960x639/1270x953/filters:focal(404x244:556x396):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/63084252/foodlife.0.jpg",
