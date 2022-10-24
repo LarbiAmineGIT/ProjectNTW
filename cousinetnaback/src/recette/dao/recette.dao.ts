@@ -22,10 +22,6 @@ export class RecetteDao {
    * @return {Observable<Recette[]>}
    */
   find = (): Observable<Recette[]> =>
-    from(this._recetteModel.find({})).pipe(map((recette) => [].concat(recette)));
-
-    async getAll():Promise<Recette[]>{
-      return await this._recetteModel.find().exec();
-    }   
+     from(this._recetteModel.find({}).lean()).pipe(map((recette) => [].concat(recette)));
 
 }

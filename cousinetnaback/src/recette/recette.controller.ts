@@ -49,7 +49,7 @@ export class RecetteController {
     Logger.log("getAll");
     Logger.log("getAll");
     Logger.log("getAll");
-    return await this._recetteDao.getAll();
+    return await this._recetteDao.find();
   }
 
 }
