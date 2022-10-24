@@ -34,9 +34,16 @@ $cousinetna-theme: mat.define-light-theme((
 @include mat.all-component-themes($cousinetna-theme);
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
 .divider{
     border-left: 1px solid #d8d8d8;
     margin: 0 10px;
+}
+.p-button:focus {
+    box-shadow: none !important;
+}
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+    box-shadow: none !important;
 }
 @import '../node_modules/bootstrap-icons/font/bootstrap-icons.scss';
 html, body { height: 100%; }
