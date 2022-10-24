@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center header">Recettes</div>
+<div class="d-flex flex-wrap">
+    <div class="categorie" *ngFor="let c of listeCategories" (click)="goCategorie(c)">
+        <div class="nom mx-3 my-2">{{c.nom}}</div>
+        <div class="d-flex" style="background-image: url({{c.photo}});min-height: 140px;">
+
+        </div>
+    </div>
+</div>
