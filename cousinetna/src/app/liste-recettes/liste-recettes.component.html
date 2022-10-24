@@ -1,22 +1,86 @@
-<div class="d-flex justify-content-center header">Recettes</div>
-<div class="d-flex">
-    <div class="col-md-3 sidebar p-2">Filtres</div>
-    <div class="col-md-9 row">
-            <div class="recette col-5 d-flex" *ngFor="let r of listeRecettes">
-                <img class="col-5" [src]="r.photo" />
-                <div class="col-7 px-2 d-flex justify-content-between flex-column">
-                    <div>
-                        <span class="title">{{ r.nom }}</span>
-                        <span class="commentaire">{{ r.commentaire }}</span>
-                    </div>
+<div class="d-flex justify-content-center header">{{categorie}}</div>
+<div class="d-flex justify-content-end" style="margin: 0 1% 10px;">
+    <button type="button" class=" btn btn_action2" (click)="op.toggle($event)" (click)="toggleFilterPanel()">
+        Filtrer
+        <i class="mx-2 fas fa-chevron-down" aria-hidden="true"
+            [ngStyle]="{'transform': isFiltre ? 'rotate(180deg)' : ''}"></i>
+    </button>
+</div>
 
-                    <span class="d-flex">
-                        <p-rating class="col" [ngModel]="val2" [readonly]="true" [stars]="r.note" [cancel]="false">
-                        </p-rating>
-                        <span class="divider"></span>
-                        <span class="col"><i class="pi pi-clock" style="margin-right: 10px;"></i>{{ r.tempsHeures }}h{{ r.tempsMinutes }}min</span>
-                    </span>
+<div [formGroup]="filtreForm" class="filtrePopup">
+    <p-overlayPanel #op >
+        <ng-template pTemplate>
+            <p-tabView >
+                <p-tabPanel header="Nom">
+                    <input type="text" class="form-control" formControlName="nom" placeholder="Search" />
+                </p-tabPanel>
+                <p-tabPanel header="Type">
+                    <p-selectButton [options]="types" formControlName="idType" [multiple]="true" optionLabel="label" optionValue="value">
+                        <ng-template let-item>
+                            <div>{{item.label}}</div>
+                        </ng-template>
+                    </p-selectButton>
+                </p-tabPanel>
+                <p-tabPanel header="Difficulté">
+                    <p-selectButton [options]="niveauxDifficulte" formControlName="niveauDifficulte" [multiple]="true" optionLabel="label" optionValue="value">
+                        <ng-template let-item>
+                            <div>{{item.label}}</div>
+                        </ng-template>
+                    </p-selectButton>
+                </p-tabPanel>
+                <p-tabPanel header="Prix">
+                    <p-slider class="mt-3" formControlName="prix" [min]="0" [max]="100" [range]="true"></p-slider>
+                    <div class="my-2">Interval: {{filtreForm.value.prix}}</div>
+                </p-tabPanel>
+            </p-tabView>
+            <div class="d-flex justify-content-between mt-2 ps-3">
+                <a class="link-success" (click)="resetFiltre()" (click)="op.hide()">Réinitialiser</a>
+                <div class="d-flex">
+                    <button class="btn btn_action2 mx-2 cancelButton" (click)="op.hide()">Annuler</button>
+                    <button class=" btn btn_action2 searchButton" (click)="op.hide()" (click)="getRecettes()">
+                        Rechercher
+                    </button>
                 </div>
             </div>
+        </ng-template>
+    </p-overlayPanel>
+</div>
+<div class="d-flex flex-wrap">
+    <div class="recette col-5 d-flex" *ngFor="let r of listeRecettes" (click)="showRecette(r)">
+        <img class="col-5" [src]="r.photo" />
+        <div class="col-7 px-2 d-flex justify-content-between flex-column">
+            <div>
+                <span class="title">{{ r.nom }}</span>
+                <span class="commentaire">{{ r.commentaire }}</span>
+            </div>
+            <span class="d-flex">
+                <p-rating class="col" [ngModel]="r.noteTotal" [readonly]="true" [stars]="5" [cancel]="false">
+                </p-rating>
+                <span class="divider"></span>
+                <span class="col"><i class="pi pi-clock" style="margin-right: 10px;"></i>{{ r.tempsHeures }}h{{
+                    r.tempsMinutes }}min</span>
+            </span>
+        </div>
     </div>
 </div>
+<p-dialog header={{clickedRecette?.nom}} [(visible)]="isRecetteDetails" [breakpoints]="{'960px': '70vw', '640px': '90vw'}" [style]="{width: '45vw'}">
+    <div class="d-flex justify-content-center">
+        <img class="col-10" [src]="clickedRecette?.photo" />
+    </div>
+    <div class="d-flex align-items-center mt-2">
+        <span class="col">Portions: {{ clickedRecette?.nbPortions }}</span>
+        <span class="divider"></span>
+        <span class="col"><i class="pi pi-clock" style="margin-right: 10px;"></i>{{ clickedRecette?.tempsHeures }}h{{
+            clickedRecette?.tempsMinutes }}min</span>
+        <span class="divider"></span>
+        <p-chip class="col" label="{{getNiveauDifficulte(clickedRecette?.niveauDifficulte)}}"></p-chip>
+    </div>
+
+    <div class="title my-3">Ingrédients</div>
+    <ul>
+        <li  *ngFor="let i of clickedRecette?.ingredients">{{i.quantite}} {{i.nom}}</li>
+    </ul>
+    <div class="title my-3">Directions</div>
+    <div>{{clickedRecette?.description}}</div>
+    
+</p-dialog>

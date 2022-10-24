@@ -1,16 +1,27 @@
-.sidebar{
+$dark-green : #ccd5ae;
+$green : #CCD5AE;
+$light-green : #E9EDC9;
+$light-beige : #FEFAE0;
+$beige : #FAEDCD;
+$light-brown : #D4A373;
+$grey2: #828a97;
+$grey3: #505660;
+
+.sidebar {
     height: 100%;
     position: sticky;
     top: 0;
     overflow-x: hidden;
 }
-.header{
+
+.header {
     font-size: 36px;
     color: #CCD5AE;
     font-weight: bold;
     margin-bottom: 21px;
 }
-.recette{
+
+.recette {
     width: 48%;
     margin: 0px 1% 20px 1%;
     padding: 0px;
@@ -24,22 +35,139 @@
         background-color: white;
         cursor: pointer;
     }
+
     &:hover:before {
         transform: scale(2.15);
     }
 }
 
-.title{
-    justify-content: center;
+.title {
     display: flex;
     font-size: 18px;
     font-weight: bold;
     color: #D4A373;
 }
+
 ::ng-deep .p-rating .p-rating-icon.pi-star-fill {
     color: #CCD5AE;
 }
-.commentaire{
+
+.commentaire {
     line-height: 1;
     font-size: 13px;
+}
+
+.btn_action2 {
+    height: 32px;
+    padding: 0.5rem !important;
+    min-width: 125px;
+    font-size: 17px !important;
+    border-radius: 6px !important;
+    background-color: #D4A373 !important;
+    color: white !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+::ng-deep ul.p-tabview-nav {
+    display: inline-grid !important;
+    border-width: 0 2px 0px 0;
+    height: fit-content;
+    width: 25%;
+    min-width: 25%;
+}
+
+::ng-deep div.p-tabview {
+    display: flex !important;
+}
+
+::ng-deep div.p-overlaypanel {
+    width: 40%;
+    right: 3% !important;
+}
+::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    margin: 3px 0 0px 0;
+    padding: 0.7rem 1rem;
+    font-size: 16px;
+    text-transform: inherit !important;
+    color: $grey2 !important;
+    font-weight: 100;
+}
+
+::ng-deep .p-overlaypanel .p-overlaypanel-content {
+    padding-top: 0px;
+    padding-left: 0px;
+    font-size: 15px !important;
+}
+
+::ng-deep .tabView .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    background: #ffffff !important;
+    border-color: #495464;
+    color: #495464 !important;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    border-color: $dark-green;
+    color: $dark-green !important;
+    font-weight: bold !important;
+}
+
+::ng-deep .p-tabview .p-tabview-panels {
+    padding: 0.5rem 1rem;
+}
+::ng-deep .p-selectbutton .p-button.p-highlight {
+    background: #f2f2f3 !important;
+    border-color: #d3cccc!important;
+    color: #564949 !important;
+}
+::ng-deep .p-button {
+    padding: 0.4rem 1rem !important;
+    font-size: 14px;
+} 
+    ::ng-deep .p-slider .p-slider-handle {
+       border: 2px solid #7fa0c8;
+   }
+    ::ng-deep .nullSlider .p-slider .p-slider-handle {
+       left: 0% !important;
+   }
+    ::ng-deep .p-slider .p-slider-range {
+       background: #7fa0c8;
+   }
+    ::ng-deep .p-slider:not(.p-disabled) .p-slider-handle:hover {
+       background: #7fa0c8;
+       border-color: #7fa0c8;
+   }
+    ::ng-deep .p-slider .p-slider-handle:focus {
+       box-shadow: none;
+   }
+    ::ng-deep .p-tabview .p-tabview-panels {
+       width: 100%;
+   }
+
+  
+
+
+.cancelButton {
+    font-size: 16px !important;
+    background-color: #ebebeb !important;
+    color: #828a97 !important;
+    border-radius: 3px !important;
+    border-color: #d4d8dd;
+}
+
+.searchButton {
+    font-size: 16px !important;
+    border-radius: 3px !important;
 }
