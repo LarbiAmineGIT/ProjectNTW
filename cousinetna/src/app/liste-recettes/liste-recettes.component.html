@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center header">Recettes</div>
+<div class="d-flex">
+    <div class="col-md-3 sidebar p-2">Filtres</div>
+    <div class="col-md-9 row">
+            <div class="recette col-5 d-flex" *ngFor="let r of listeRecettes">
+                <img class="col-5" [src]="r.photo" />
+                <div class="col-7 px-2 d-flex justify-content-between flex-column">
+                    <div>
+                        <span class="title">{{ r.nom }}</span>
+                        <span class="commentaire">{{ r.commentaire }}</span>
+                    </div>
+
+                    <span class="d-flex">
+                        <p-rating class="col" [ngModel]="val2" [readonly]="true" [stars]="r.note" [cancel]="false">
+                        </p-rating>
+                        <span class="divider"></span>
+                        <span class="col"><i class="pi pi-clock" style="margin-right: 10px;"></i>{{ r.tempsHeures }}h{{ r.tempsMinutes }}min</span>
+                    </span>
+                </div>
+            </div>
+    </div>
+</div>

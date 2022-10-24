@@ -1,0 +1,127 @@
+
+
+<h2 mat-dialog-title >Créer une nouvelle recette</h2>
+
+<mat-dialog-content>
+  <form novalidate #f="ngForm">
+
+    <table class="full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="full-width" [class.mgb15]="name.dirty && name.invalid">
+            <input matInput placeholder="Nom de la recette" [(ngModel)]="model.name" minlength="3" required name="name" #name="ngModel"/>
+            <mat-error *ngIf="name.dirty && name.hasError('required')">
+              Un nom est requis pour votre recette
+            </mat-error>
+            <mat-error *ngIf="name.dirty && name.hasError('minlength')">
+              Le nom de votre recette doit être au moins de 3 caractères
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <table class="full-width" cellSpacing="0">
+      <tr>
+        <td>
+          <mat-form-field >
+            <input matInput placeholder="durée en heures" [(ngModel)]="model.dureeh" pattern="[0-9]{2}|[0-9]{1}" minlength="1" required name="dureeh" #dureeh="ngModel"/>
+            <mat-error *ngIf="dureeh.dirty && dureeh.hasError('required')">
+              Une durée en heures est requise
+            </mat-error>
+            <mat-error *ngIf="dureeh.dirty && dureeh.hasError('minlength')">
+              la durée doit au moins être de 1 caractère
+            </mat-error>
+          </mat-form-field>
+        </td>
+
+
+        <td>
+          <mat-form-field >
+            <input matInput placeholder="durée en minutes" [(ngModel)]="model.dureem" pattern="[0-9]{2}|[0-9]{1}" minlength="1" required name="dureem" #dureem="ngModel"/>
+            <mat-error *ngIf="dureem.dirty && dureem.hasError('required')">
+              Une durée en minutes est requise 
+            </mat-error>
+            <mat-error *ngIf="dureem.dirty && dureem.hasError('minlength')">
+              La durée doit au moins être de 1 caractère
+            </mat-error>
+          </mat-form-field>
+        </td>
+
+      </tr>
+    </table>
+    <table class="full-width">
+       <tr>
+        <td>
+          <mat-form-field class="third-width">
+            <input matInput placeholder="Categorie" [(ngModel)]="model.categorie" pattern="[0-9]{2}|[0-9]{1}" minlength="1" required name="categorie" #categorie="ngModel"/>
+            <mat-error *ngIf="categorie.dirty && categorie.hasError('required')">
+              Une categorie est requise 
+            </mat-error>
+            <mat-error *ngIf="categorie.dirty && categorie.hasError('minlength')">
+              La categorie doit au moins être de 1 caractère
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <mat-form-field class="third-width">
+            <input matInput placeholder="Nombre de portions" [(ngModel)]="model.nbportions" pattern="[0-9]{2}|[0-9]{1}" minlength="1" required name="nbportions" #nbportions="ngModel"/>
+            <mat-error *ngIf="nbportions.dirty && nbportions.hasError('required')">
+              Un nombre de portions est requis
+            </mat-error>
+            <mat-error *ngIf="nbportions.dirty && nbportions.hasError('minlength')">
+              Le nombre de portions doit au moins être de 1 caractère
+            </mat-error>
+          </mat-form-field>
+        </td>
+      </tr> 
+      <tr>
+        <td>
+          <mat-form-field class="third-width">
+            <input matInput placeholder="Niveau de difficulté" [(ngModel)]="model.niveaudifficulte" type="number"  (change)= "model.niveaudifficulte < 0 ? model.niveaudifficulte = 0 : model.niveaudifficulte; model.niveaudifficulte > 5 ? model.niveaudifficulte = 0 : model.niveaudifficulte;" pattern="[0-5]{1}" minlength="1" required name="niveaudifficulte" #niveaudifficulte="ngModel"/>
+            <mat-error *ngIf="niveaudifficulte.dirty && niveaudifficulte.hasError('required')">
+              Un niveau de difficulté est requis 
+            </mat-error>
+            <mat-error *ngIf="niveaudifficulte.dirty && niveaudifficulte.hasError('minlength')">
+              Le niveau de difficulté doit au moins être de caractère
+            </mat-error>
+
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5"
+                  [(ngModel)]="model.description"
+                  minlength="1" 
+                  required
+                  name="description" 
+                  #description="ngModel"
+                  ></textarea>
+      </mat-form-field>
+    </p>
+
+
+    <!-- required by API, so we put static content which is not editable but sent to the API -->
+    <input type="hidden" [ngModel]="model.name" name="entity">
+  </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" type="submit" (click)="submit()" [disabled]="f.invalid">Save</button>
+</mat-dialog-actions>
+
+
+
