@@ -4,11 +4,8 @@ import { AdddeletechangecomponentComponent } from './adddeletechangecomponent/ad
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {
-  path: 'list/:categorie',
-  loadChildren: () =>
-    import('./liste-recettes/liste-recettes.module').then((m) => m.ListRecipesModule),
-  },
+  { path: '', component : HomeComponent},
+  {  path: 'liste',  loadChildren: () =>    import('./liste/liste.module').then((m) => m.ListeModule),  },
   { path: 'adddeletechange', component : AdddeletechangecomponentComponent},
   { path: 'home', component : HomeComponent},
 ];
