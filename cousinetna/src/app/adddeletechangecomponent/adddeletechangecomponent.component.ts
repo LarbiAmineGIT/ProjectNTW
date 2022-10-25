@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { Recette } from '../types/recette.type';
+import {recettes} from '../recettes';
 import { defaultIfEmpty, filter, map, mergeMap, Observable } from 'rxjs';
+import { RecetteService } from '../services/recette.service';
 
 @Component({
   selector: 'app-adddeletechangecomponent',
@@ -14,14 +16,34 @@ export class AdddeletechangecomponentComponent implements OnInit {
   private _dialogStatus: string;
   private _peopleDialog: MatDialogRef<DialogComponent, Recette> | undefined;
   private _recettes: Recette[];
+  listeRecettes:any[]=[];
 
-  constructor(private _dialog: MatDialog) { 
+  constructor(private _dialog: MatDialog, private recetteService : RecetteService) { 
     this._dialogStatus = 'inactive';
     this._recettes = [];
   }
 
   ngOnInit(): void {
+    this.getRecettes();
   }
+
+  getRecettes()
+  {
+    this.listeRecettes= recettes;
+    let body ={
+      idCategorie:'',
+      nom: '',
+      niveauDifficulte: '',
+      idType: '',      
+      prix: '',
+  }
+
+    this.recetteService.getRecettes(body).subscribe((res) =>{
+      this.listeRecettes=res.data;
+    });
+  
+  }
+
 
   get dialogStatus(): string {
     return this._dialogStatus;

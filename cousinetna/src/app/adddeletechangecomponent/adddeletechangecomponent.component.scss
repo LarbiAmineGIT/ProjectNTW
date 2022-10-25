@@ -1,14 +1,33 @@
 .btn-google {
     color: #fff;
-    background-color: #ea4335;
-    border-color: #ea4335;
+    background-color: #0dec90;
+    border-color: #0dec90;
     font-size: 0.8rem;
-    border-radius: 10rem;
+    border-radius: 1rem;
     padding: 0.75rem 1rem;
 }
   
 .btn-google:hover {
     color: #fff;
-    background-color: #e12717;
-    border-color: #e6e6e6;
+    background-color: #119658;
+    border-color: #119658;
+}
+
+.header {
+    font-size: 36px;
+    color: #CCD5AE;
+    font-weight: bold;
+    margin-bottom: 21px;
+}
+.categorie{
+    border: 1px solid #CCD5AE;
+    border-radius: 6px;
+    margin: 10px 1.5%;
+    width: 17%;
+    min-height: 148px;
+    cursor: pointer;
+}
+.nom{
+    font-size: 16px;
+    font-weight: bold;
 }

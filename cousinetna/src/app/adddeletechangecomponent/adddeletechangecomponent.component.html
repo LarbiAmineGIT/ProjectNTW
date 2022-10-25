@@ -1,6 +1,43 @@
-<p class="mt-5"></p>
+<div class=" h2 mt-5 d-flex justify-content-center header">Envie d'ajouter, modifier ou supprimerune recette? C'est ici !</div>
 
-<button (click)="showDialog()" *ngIf="dialogStatus === 'inactive'"  class="btn-google">
+<button (click)="showDialog()" *ngIf="dialogStatus === 'inactive'"  class="btn-google mt-2 mb-2 ms-2">
     Ajouter une recette
 </button>
+
+<table class="table mt-5" style="table-layout: fixed">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Note</th>
+        </tr>
+    </thead>
+
+   
+        <tr *ngFor="let r of listeRecettes" style="width: 100%;">
+            <th>
+                {{r.idType}}
+            </th>
+            <th>
+                {{r.nom}}
+            </th>
+            <th>
+                {{r.noteTotal}}
+            </th>
+            <th>
+                <button class="btn-google mt-2 mb-2 ms-2">
+                Supprimer
+                </button>
+            </th>
+            <th>
+                <button class="btn-google mt-2 mb-2 ms-2">
+                    Mofidier
+                </button>
+            </th>
+
+        </tr>
+  
+    
+</table>
+
   
