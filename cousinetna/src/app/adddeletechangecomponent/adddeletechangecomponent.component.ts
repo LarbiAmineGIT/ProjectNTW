@@ -16,7 +16,8 @@ export class AdddeletechangecomponentComponent implements OnInit {
   private _dialogStatus: string;
   private _peopleDialog: MatDialogRef<DialogComponent, Recette> | undefined;
   private _recettes: Recette[];
-  listeRecettes:any[]=[];
+  listeRecettes:any;
+  uneRecette: any;
 
   constructor(private _dialog: MatDialog, private recetteService : RecetteService) { 
     this._dialogStatus = 'inactive';
@@ -24,9 +25,11 @@ export class AdddeletechangecomponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getRecettes();
+    //this.getRecettes();
+    this.recetteService.fetch().subscribe({next:(recette: Recette[])=> this.listeRecettes = recette });
+    this.recetteService.fetchRandom().subscribe({next:(unerecette: Recette)=> this.uneRecette = unerecette });
   }
-
+/*
   getRecettes()
   {
     this.listeRecettes= recettes;
@@ -43,7 +46,7 @@ export class AdddeletechangecomponentComponent implements OnInit {
     });
   
   }
-
+*/
 
   get dialogStatus(): string {
     return this._dialogStatus;
