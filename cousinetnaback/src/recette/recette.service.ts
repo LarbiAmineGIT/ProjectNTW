@@ -1,5 +1,5 @@
 import {Injectable, Logger,} from '@nestjs/common';
-import {Observable } from 'rxjs';
+import {from, Observable } from 'rxjs';
 import { defaultIfEmpty, filter, map } from 'rxjs/operators';
 import { Recette} from './recette.types';
 import { RecetteEntity } from './entities/recette.entity';
@@ -27,27 +27,18 @@ export class RecetteService {
       filter(Boolean),
       map((recette) => (recette || []).map((recette) => new RecetteEntity(recette))),
       defaultIfEmpty(undefined),
-    );
+  );
 
-  findAlll(): Observable<RecetteEntity[] | void>
+  getAll(data): Observable<any |void>
   {
-    Logger.log("findAlll");
-
-    var temp2 = this._recetteDao.find().pipe(
-      filter(Boolean),
-      defaultIfEmpty(undefined),
-    );
-    Logger.log("temp2");
-    Logger.log(temp2);
-    temp2.forEach(r => {
-      Logger.log("r");
-      Logger.log(r);
+    var recettes;
+    this._recetteDao.find().subscribe(res =>{
+      var result = res.filter(r => r.idCategorie== data.idCategorie);
+      if(data.idType !=null) result = result.filter(r => data.idType.contains(r.idType));
+      if(data.niveauDifficulte !=null) result = result.filter(r => data.niveauDifficulte.contains(r.niveauDifficulte));
+      if(data.nom !=null) result = result.filter(r => r.nom.includes(data.nom));
+      recettes= result;
     });
-    
-    return this._recetteDao.find().pipe(
-      filter(Boolean),
-      map((recette) => (recette || []).map((recette) => new RecetteEntity(recette))),
-      defaultIfEmpty(undefined),
-    );
+    return from(recettes);
   }
 }
