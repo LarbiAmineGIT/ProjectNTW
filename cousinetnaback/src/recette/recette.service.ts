@@ -31,14 +31,25 @@ export class RecetteService {
 
   getAll(data): Observable<any |void>
   {
+    var minPrix = data.prix[0];
+    var maxPrix = data.prix[1];
     var recettes;
     this._recetteDao.find().subscribe(res =>{
-      var result = res.filter(r => r.idCategorie== data.idCategorie);
+      var result = res.filter(r => r.idCategorie== data.idCategorie && minPrix<this.getPrixTotal(r.ingredients) && maxPrix>this.getPrixTotal(r.ingredients) );
       if(data.idType !=null) result = result.filter(r => data.idType.contains(r.idType));
       if(data.niveauDifficulte !=null) result = result.filter(r => data.niveauDifficulte.contains(r.niveauDifficulte));
       if(data.nom !=null) result = result.filter(r => r.nom.includes(data.nom));
-      recettes= res;
+      recettes= result;
     });
     return from(recettes);
+  }
+
+  getPrixTotal(ingredients:any[])
+  {
+    var prix = 0;
+    ingredients.forEach(ingredient => {
+      prix += ingredient.prix * ingredient.quantite;
+    });
+    return prix;
   }
 }
