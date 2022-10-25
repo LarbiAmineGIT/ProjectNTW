@@ -1,3 +1,12 @@
+th {
+    border: solid 0.5px lightgrey;
+}
+
+.btn-full{
+    height: auto;
+    width: auto;
+}
+
 .btn-google {
     color: #fff;
     background-color: #0dec90;
@@ -12,6 +21,37 @@
     background-color: #119658;
     border-color: #119658;
 }
+
+.btn-modif {
+    color: #fff;
+    background-color: #eff31e;
+    border-color: #eff31e;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    padding: 0.75rem 1rem;
+}
+  
+.btn-modif:hover {
+    color: #fff;
+    background-color: #c2b509;
+    border-color: #c2b509;
+}
+
+.btn-delete {
+    color: #fff;
+    background-color: #f02e2e;
+    border-color: #f02e2e;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    padding: 0.75rem 1rem;
+}
+  
+.btn-delete:hover {
+    color: #fff;
+    background-color: #a50505;
+    border-color: #a50505;
+}
+
 
 .header {
     font-size: 36px;
