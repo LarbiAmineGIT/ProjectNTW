@@ -9,6 +9,7 @@ export const environment = {
     host: '0.0.0.0',
     port: '3000',
     endpoints: {
+      API_URL:'/recette/getAll',
       allRecette: '/recette',
       randomRecette: '/recette/random',
       oneRecette: '/recette/:id',

@@ -37,7 +37,7 @@ export class RecetteService {
       if(data.idType !=null) result = result.filter(r => data.idType.contains(r.idType));
       if(data.niveauDifficulte !=null) result = result.filter(r => data.niveauDifficulte.contains(r.niveauDifficulte));
       if(data.nom !=null) result = result.filter(r => r.nom.includes(data.nom));
-      recettes= result;
+      recettes= res;
     });
     return from(recettes);
   }
