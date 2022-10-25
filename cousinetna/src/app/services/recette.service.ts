@@ -21,7 +21,8 @@ export class RecetteService{
           baseUrl += `:${environment.backend.port}`;
         }
         
-      //  Object.keys(environment.backend.endpoints).forEach(k => this._backendURL[ k ] = `${baseUrl}${environment.backend.endpoints[ k ]}`);
+        // @ts-ignore
+       Object.keys(environment.backend.endpoints).forEach(k => this._backendURL[ k ] = `${baseUrl}${environment.backend.endpoints[ k ]}`);
 
     }
 
