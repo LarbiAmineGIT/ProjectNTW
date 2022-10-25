@@ -1,14 +1,43 @@
-        <header class="bg-dark py-5">
+        <header class="bg-success py-5">
             <div class="container px-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <div class="text-center my-5">
                             <h1 class="display-5 fw-bolder text-white mb-2">Les meilleures cuisines du monde sont à votre portée !</h1>
-                            <p class="lead text-white-50 mb-4">Découvrez des milliers d'idées recettes et astuces pour ravir vos invités ou simplement pour égayer votre quotidien.</p>
+                        </div>
+                        <p class=" h2 lead text-white mb-4">Découvrez des milliers d'idées recettes et astuces pour ravir vos invités ou simplement pour égayer votre quotidien.</p>
+                        <p class=" h2 lead text-white mb-4">Voici une de nos délicieuses recettes :</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div class="container-sm justify-content-center center " style="align-items: center;">
+                    <div class="card col-6 center" style=" margin-left: auto; margin-right: auto;">
+                        <div class=" card-body">
+                            <div class="d-flex flex-wrap">
+                                <div class="recette d-flex" >
+                                    <img class="col-5" style="border-radius: 1rem;" [src]="uneRecette.photo" />
+                                    <div class="col-7 px-2 d-flex justify-content-between flex-column">
+                                        <div>
+                                            <span class="title"> <b>{{ uneRecette.nom }} </b> </span>
+                                            <span class="commentaire">{{ uneRecette.commentaire }}</span>
+                                        </div>
+                                        <span class="d-flex">
+                                            <span class="col">Note: {{uneRecette.noteTotal}} </span>
+                                            <span class="divider"></span>
+                                            <span class="col"><i class="pi pi-clock" style="margin-right: 10px;"></i>{{ uneRecette.tempsHeures }}h{{
+                                                uneRecette.tempsMinutes }}min</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+        
                         </div>
                     </div>
                 </div>
             </div>
+                        
         </header>
 
         <section class="py-5 border-bottom" id="features">

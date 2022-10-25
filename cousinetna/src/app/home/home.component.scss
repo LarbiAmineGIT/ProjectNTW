@@ -6303,6 +6303,13 @@
     margin-bottom: 0;
     line-height: 1.5;
   }
+
+  .title {
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    color: #D4A373;
+}
   
   .offcanvas-body {
     flex-grow: 1;
@@ -11279,4 +11286,9 @@
     height: 4rem;
     width: 4rem;
     font-size: 2rem;
+  }
+
+  .commentaire {
+    line-height: 1;
+    font-size: 13px;
   }
