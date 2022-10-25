@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Logger,
+  Post,
   UseInterceptors,
 } from '@nestjs/common';
 import { RecetteService } from './recette.service';
@@ -41,15 +42,16 @@ export class RecetteController {
   // @ApiNoContentResponse({ description: 'No recipe exists in database' })
   // @Get()
   // findAll(): Observable<RecetteEntity[] | void> {
-  //   return this._recetteService.findAlll();
+  //   return this._recetteService.find();
   // }
 
   @Get()
   async getAll(){
-    Logger.log("getAll");
-    Logger.log("getAll");
-    Logger.log("getAll");
     return await this._recetteDao.find();
+  }
+  @Post("getAll")
+  getRecettes(data):Observable<any>{
+    return this._recetteService.getAll(data);
   }
 
 }

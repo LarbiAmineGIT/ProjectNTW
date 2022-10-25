@@ -1,5 +1,6 @@
 <div class="d-flex justify-content-center header">{{categorie}}</div>
-<div class="d-flex justify-content-end" style="margin: 0 1% 10px;">
+<div class="d-flex justify-content-between" style="margin: 0 1% 10px;">
+   <span style="cursor: pointer;" routerLink="/liste" > <i class=" mx-3 fa-solid fa-reply fa-lg"></i></span>
     <button type="button" class=" btn btn_action2" (click)="op.toggle($event)" (click)="toggleFilterPanel()">
         Filtrer
         <i class="mx-2 fas fa-chevron-down" aria-hidden="true"

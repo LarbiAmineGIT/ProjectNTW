@@ -71,6 +71,10 @@ export class RecetteService{
           );
     }
 
+    getRecettes(data: any): Observable<any> {
+        return this._http.post<any>(this._backendURL.API_URL, data);
+    }
+
     private _options(headerList: object = {}): any {
         return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)) };
     }
