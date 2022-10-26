@@ -31,7 +31,7 @@ export class RecetteService{
 
     /*Fonction qui retourne toutes les recettes */
    
-  fetch(): Observable<Recette[]> {
+  fetch(): Observable<any[]> {
     return this._http.get<Recette[]>(this._backendURL.allRecette)
       .pipe(
         filter((recettes: Recette[]) => !!recettes),

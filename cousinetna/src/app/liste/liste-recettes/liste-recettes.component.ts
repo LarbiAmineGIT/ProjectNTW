@@ -55,8 +55,8 @@ export class ListeRecettesComponent implements OnInit {
 
   getRecettes()
   {
-    this.listeRecettes= recettes;
-    this.listeRecettes=this.listeRecettes.filter(r=> r.idCategorie == this.idCategorie);
+    //this.listeRecettes= recettes;
+    //this.listeRecettes=this.listeRecettes.filter(r=> r.idCategorie == this.idCategorie);
 
     let body ={
         idCategorie:this.idCategorie,
@@ -68,11 +68,14 @@ export class ListeRecettesComponent implements OnInit {
     this.recetteService.fetch().subscribe((res) =>{
       var minPrix = body.prix[0];
       var maxPrix = body.prix[1];
-      var result = res.filter(r => r.categorie== this.idCategorie && minPrix<this.getPrixTotal(r.listeingreditens) && maxPrix>this.getPrixTotal(r.listeingreditens) );
-      // if(body.idType !=null) result = result.filter(r => body.idType.contains(r.idType));
-      if(body.niveauDifficulte !=null) result = result.filter(r => body.niveauDifficulte.contains(r.niveaudifficulte));
-      if(body.nom !=null) result = result.filter(r => r.name.includes(body.nom));
-
+      var result = res.filter(r => r.idCategorie== this.idCategorie );
+      // if(body.idType !=null) result = result.filter(r => body.idType.contains(r.idType));  
+      if(body.niveauDifficulte !=null) result = result.filter(r => body.niveauDifficulte.includes(r.niveauDifficulte.toString()));
+      console.log(result);
+      if(body.nom !=null) result = result.filter(r => r.nom.includes(body.nom));
+      console.log(result);
+      console.log(body);
+      console.log(res);
       this.listeRecettes=result;
     });
 

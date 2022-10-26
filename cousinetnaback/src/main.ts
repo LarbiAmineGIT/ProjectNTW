@@ -8,7 +8,6 @@ import { AppModule } from './app.module';
 import * as Config from 'config';
 import { AppConfig, SwaggerConfig } from './app.types';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { PeopleModule } from './people/people.module';
 import { RecetteModule } from './recette/recette.module';
 
 async function bootstrap(config: AppConfig, swaggerConfig: SwaggerConfig) {
@@ -35,12 +34,12 @@ async function bootstrap(config: AppConfig, swaggerConfig: SwaggerConfig) {
     .build();
 
   // create swagger document
-  const peopleDocument = SwaggerModule.createDocument(app, options, {
-    include: [PeopleModule,RecetteModule],
+  const recetteDocument = SwaggerModule.createDocument(app, options, {
+    include: [RecetteModule],
   });
 
   // setup swagger module
-  SwaggerModule.setup(swaggerConfig.path, app, peopleDocument);
+  SwaggerModule.setup(swaggerConfig.path, app, recetteDocument);
 
   // launch server
   await app.listen(config.port, config.host);
