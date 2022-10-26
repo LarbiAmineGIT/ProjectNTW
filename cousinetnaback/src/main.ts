@@ -17,7 +17,7 @@ async function bootstrap(config: AppConfig, swaggerConfig: SwaggerConfig) {
     AppModule,
     new FastifyAdapter({ logger: true }),
   );
-
+  app.enableCors();
   // use global pipe validation
   await app.useGlobalPipes(
     new ValidationPipe({

@@ -1,5 +1,5 @@
 export type Recette = {
-  id: string;
+  _id: string;
   photo: string;
   nom: string;
   tempsHeures: number;

@@ -115,10 +115,10 @@ export class RecetteEntity {
   @Expose()
   niveauDifficulte: number;
 
-  @ApiProperty({ name: 'ingredients', description: 'ingredients' })
+  @ApiProperty({ name: 'ingredient', description: 'ingredient' })
   @Expose()
   @Type(() => IngredientEntity)
-  ingredients: IngredientEntity[];
+  ingredient: IngredientEntity[];
 
 
   /**
