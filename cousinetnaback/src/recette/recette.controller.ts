@@ -66,7 +66,7 @@ export class RecetteController {
 
 
   @Post("getAll")
-  getRecettes(data):Observable<any>{
+  getRecettes(@Body() data):Observable<any>{
     return this._recetteService.getAll(data);
   }
   

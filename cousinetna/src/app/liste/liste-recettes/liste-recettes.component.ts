@@ -65,10 +65,26 @@ export class ListeRecettesComponent implements OnInit {
         idType: this.filtreForm.value.idType,      
         prix: this.filtreForm.value.prix,
     }
-    this.recetteService.getRecettes(body).subscribe((res) =>{
-        this.listeRecettes=res.data;
+    this.recetteService.fetch().subscribe((res) =>{
+      var minPrix = body.prix[0];
+      var maxPrix = body.prix[1];
+      var result = res.filter(r => r.categorie== this.idCategorie && minPrix<this.getPrixTotal(r.listeingreditens) && maxPrix>this.getPrixTotal(r.listeingreditens) );
+      // if(body.idType !=null) result = result.filter(r => body.idType.contains(r.idType));
+      if(body.niveauDifficulte !=null) result = result.filter(r => body.niveauDifficulte.contains(r.niveaudifficulte));
+      if(body.nom !=null) result = result.filter(r => r.name.includes(body.nom));
+
+      this.listeRecettes=result;
     });
 
+  }
+
+  getPrixTotal(ingredients:any[])
+  {
+    var prix = 0;
+    ingredients.forEach(ingredient => {
+      prix += ingredient.prix * ingredient.quantite;
+    });
+    return prix;
   }
 
   toggleFilterPanel() {
