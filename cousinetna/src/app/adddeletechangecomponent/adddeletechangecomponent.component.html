@@ -18,7 +18,7 @@
    
         <tr *ngFor="let r of listeRecettes" style="width: 100%;">
             <th>
-                {{r.idType}} et {{r._id}}
+                {{r.idType}} 
             </th>
             <th>
                 {{r.nom}}
@@ -40,37 +40,3 @@
         </tr>
   
 </table>
-
-<table class="table ms-2 me-2 mt-2 mb-2 table-striped" style="table-layout: fixed; text-align: center">
-    <thead>
-        <tr>
-            <th scope="col">id Type</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Note</th>
-            <th scope="col">Modification</th>
-            <th scope="col">Suppression</th>
-        </tr>
-    </thead>
-
-    <tr style="width: 100%;">
-        
-        <th>
-           {{uneRecette.nom}}
-        </th>
-        <th>
-            {{uneRecette.noteTotal}}
-        </th>
-        <th>
-            <button class="btn-modif btn-full">
-            Modifier la recette
-            </button>
-        </th>
-        <th>
-            <button class="btn-delete btn-full">
-            Supprimer la recette
-            </button>
-        </th>
-
-    </tr>
-</table>
-  

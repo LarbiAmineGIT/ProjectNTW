@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Recette } from '../types/recette.type';
+import { RecetteService } from '../services/recette.service';
 
 @Component({
   selector: 'app-dialog',
@@ -8,11 +9,10 @@ import { Recette } from '../types/recette.type';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
-
    /**
    * Component constructor
    */
-    constructor(private _dialogRef: MatDialogRef<DialogComponent, Recette>, @Optional() @Inject(MAT_DIALOG_DATA) private _recette: Recette) {
+    constructor(private _dialogRef: MatDialogRef<DialogComponent, Recette>, @Optional() @Inject(MAT_DIALOG_DATA) private _recette: Recette,  private recetteService : RecetteService) {
     }
   
     /**
@@ -40,6 +40,8 @@ export class DialogComponent implements OnInit {
      */
     onSave(recette: Recette): void {
       this._dialogRef.close(recette);
+      this.recetteService.create(recette);
+
     }
     
 }
