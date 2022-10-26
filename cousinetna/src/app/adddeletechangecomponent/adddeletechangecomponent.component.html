@@ -18,7 +18,7 @@
    
         <tr *ngFor="let r of listeRecettes" style="width: 100%;">
             <th>
-                {{r.idType}}
+                {{r.idType}} et {{r._id}}
             </th>
             <th>
                 {{r.nom}}
@@ -32,11 +32,11 @@
                 </button>
             </th>
             <th>
-                <button class="btn-delete btn-full">
+                <button class="btn-delete btn-full" (click)="deleterecette(r._id)">
                 Supprimer la recette
                 </button>
             </th>
-
+            
         </tr>
   
 </table>

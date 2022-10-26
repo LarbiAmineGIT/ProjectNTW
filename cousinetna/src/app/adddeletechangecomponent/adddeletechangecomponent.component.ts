@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { Recette } from '../types/recette.type';
@@ -18,6 +18,7 @@ export class AdddeletechangecomponentComponent implements OnInit {
   private _recettes: Recette[];
   listeRecettes:any;
   uneRecette: any;
+ 
 
   constructor(private _dialog: MatDialog, private recetteService : RecetteService) { 
     this._dialogStatus = 'inactive';
@@ -29,11 +30,12 @@ export class AdddeletechangecomponentComponent implements OnInit {
     this.recetteService.fetch().subscribe({next:(recette: Recette[])=> this.listeRecettes = recette });
     this.recetteService.fetchRandom().subscribe({next:(unerecette: Recette)=> this.uneRecette = unerecette });
   }
-
-  deleterecette(): void{
-    this.recetteService.delete()
-  }
 /*
+  deleterecette(): void{
+    this.recetteService.delete(this.iddelete)
+  }
+*/
+  /*
   getRecettes()
   {
     this.listeRecettes= recettes;
@@ -51,6 +53,11 @@ export class AdddeletechangecomponentComponent implements OnInit {
   
   }
 */
+
+  deleterecette(id:any): any {
+   // console.log("voici el famoso id"+ Object.values(id));
+    this.recetteService.delete( id).subscribe({});
+  }
 
   get dialogStatus(): string {
     return this._dialogStatus;
