@@ -29,6 +29,10 @@ export class AdddeletechangecomponentComponent implements OnInit {
     this.recetteService.fetch().subscribe({next:(recette: Recette[])=> this.listeRecettes = recette });
     this.recetteService.fetchRandom().subscribe({next:(unerecette: Recette)=> this.uneRecette = unerecette });
   }
+
+  deleterecette(): void{
+    this.recetteService.delete()
+  }
 /*
   getRecettes()
   {
